@@ -86,7 +86,7 @@ def pass_data():
         }
         session['registration'] = registration_data
 
-        return redirect("/payment")
+        return render_template("payment.html", expected_amount=expected_amount)
 
 
 @app.route('/paying', methods=['POST'])
