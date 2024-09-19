@@ -123,7 +123,7 @@
     <div class="wrapper">
         <h2>Payment</h2>
         <form action="/paying" method="post" enctype="multipart/form-data">
-            <img src="{{ url_for('static/images', filename='qr_code.png') }}" alt="QR Code" class="qr-code">
+            <img src="static/images/qr_code.png" alt="QR Code" class="qr-code">
             <p class="amount">Amount to be paid: ₹ {{expected_amount}}</p> <!-- Change XX.XX to your actual amount -->
             
             <div class="input-box">
