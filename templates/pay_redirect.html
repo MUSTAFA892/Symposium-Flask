@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Failure</title>
+    <script>
+        // Function to show the alert box and redirect
+        function showAlertAndRedirect() {
+            alert("Enter valid transaction ID");
+            window.location.href = "/register";
+        }
+
+        // Show the alert box and redirect when the page loads
+        window.onload = function() {
+            showAlertAndRedirect();
+        }
+    </script>
+</head>
+<body>
+    <!-- The alert box and redirection will occur automatically -->
+</body>
+</html>

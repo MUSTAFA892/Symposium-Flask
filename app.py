@@ -1,6 +1,5 @@
 import os
-from flask import Flask
-from flask import render_template,request,redirect,session
+from flask import Flask, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from flask_session import Session
 
@@ -8,13 +7,13 @@ app = Flask(__name__, static_url_path='/static')
 
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://psql_wvkz_user:pQcWVFKFGaJwcXzXcjJGs9XAQNnslM4G@dpg-cri1nad6l47c73dsdt0g-a.oregon-postgres.render.com/psql_wvkz"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://psql_ddp7_user:VVOmc94AxOdnlNz5pw0QlFxDxTqz2GkD@dpg-crm143o8fa8c739vm320-a.oregon-postgres.render.com/psql_ddp7"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = "secretkey123"
 
 db = SQLAlchemy(app)
 
-ENTRY_FEE=250
+ENTRY_FEE = 250
 
 # Define the model
 class Datas(db.Model):
@@ -24,20 +23,19 @@ class Datas(db.Model):
     dept = db.Column(db.String(100), nullable=False)
     college = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
-    events = db.Column(db.String, nullable=False)
-    team_size = db.Column((db.Integer), nullable=False)
+    team_size = db.Column(db.Integer, nullable=False)
     teamname = db.Column(db.String(100), nullable=True)
-    team_members = db.Column(db.String, nullable=True)
+    team_members = db.Column(db.JSON, nullable=True)
     expected_amount = db.Column(db.Integer, nullable=False)
     transaction_id = db.Column(db.String(100), unique=True, nullable=False)
     screenshot = db.Column(db.LargeBinary, nullable=False)
+
     def __repr__(self):
         return f'<data {self.name}>'
 
 # Create the database and tables
 with app.app_context():
     db.create_all()
-
 
 @app.route('/registering', methods=['POST'])
 def pass_data():
@@ -48,7 +46,6 @@ def pass_data():
         dept = request.form['dept']
         college = request.form['college']
         email = request.form['email']
-        events_str = ','.join(request.form.getlist('events'))
         teamname = request.form.get('teamname', '')
         team_size = int(request.form['team-size'])
         expected_amount = team_size * ENTRY_FEE
@@ -60,17 +57,20 @@ def pass_data():
         ).first()
 
         if existing_user:
-            # Handle the case where mobile number or email already exists
             error_message = 'A user with this mobile number or email already exists.'
             return render_template('fail_redirect.html', error_message=error_message)
-        
-        # Prepare team members list
+
+        # Prepare team members list as a list of dictionaries
         team_members = []
         for i in range(2, team_size + 1):
-            teammate_name = request.form.get(f'teammate{i-1}')
-            if teammate_name:
-                team_members.append(teammate_name)
-        
+            teammate_name = request.form.get(f'teammate{i-1}-name')
+            teammate_email = request.form.get(f'teammate{i-1}-email')
+            teammate_phone = request.form.get(f'teammate{i-1}-phone')
+            if teammate_name and teammate_email and teammate_phone:
+                team_members.append({
+                    teammate_name: [teammate_email, teammate_phone]
+                })
+
         # Store registration data in the session
         registration_data = {
             'name': name,
@@ -78,16 +78,14 @@ def pass_data():
             'dept': dept,
             'college': college,
             'email': email,
-            'events_str': events_str,
             'teamname': teamname,
             'team_size': team_size,
             'expected_amount': expected_amount,
-            'team_members': ','.join(team_members)  # Store as comma-separated string
+            'team_members': team_members
         }
         session['registration'] = registration_data
 
         return render_template("payment.html", expected_amount=expected_amount)
-
 
 @app.route('/paying', methods=['POST'])
 def store_data():
@@ -106,7 +104,6 @@ def store_data():
             dept=registration_data['dept'],
             college=registration_data['college'],
             email=registration_data['email'],
-            events=registration_data['events_str'],
             team_size=registration_data['team_size'],
             teamname=registration_data.get('teamname'),
             expected_amount=registration_data['expected_amount'],
@@ -114,18 +111,21 @@ def store_data():
             screenshot=screenshot_binary,
             team_members=registration_data['team_members']
         )
-        db.session.add(data)
-        db.session.commit()
-        return render_template('success_redirect.html')
 
-    
-    
+        # Start a new transaction
+        try:
+            db.session.add(data)
+            db.session.commit()
+            session.pop('registration', None)  # Clear session data after successful registration
+            return render_template('success_redirect.html')
+        except Exception as e:
+            db.session.rollback()  # Rollback in case of error
+            error_message = "Registration failed due to an error."
+            return render_template('pay_redirect.html', error_message=error_message)
 
 @app.route('/datas')
 def datas():
     all_datas = Datas.query.all()
-    for record in all_datas:
-        record.events = record.events.split(',') 
     return render_template('datas.html', datas=all_datas)
 
 @app.route('/image/<int:data_id>')
@@ -134,12 +134,10 @@ def get_image(data_id):
     if data and data.screenshot:
         return app.response_class(
             response=data.screenshot,
-            mimetype='image/jpeg',  # Adjust based on your image format (e.g., 'image/png')
+            mimetype='image/jpeg',
             headers={"Content-Disposition": "inline; filename=image.jpg"}
         )
     return "Image not found", 404
-
-
 
 @app.route('/technical')
 def technical():
@@ -168,3 +166,6 @@ def members():
 @app.route('/')
 def home():
     return render_template("home.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)

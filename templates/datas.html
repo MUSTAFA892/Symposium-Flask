@@ -137,7 +137,6 @@
     <table border="1">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Mobile Number</th>
                 <th>Dept</th>
@@ -146,7 +145,6 @@
                 <th>Team Name</th> 
                 <th>Team Size</th>
                 <th>Team Members</th> 
-                <th>Events</th>
                 <th>Expected Amount</th>
                 <th>Transaction ID</th>
                 <th>Payment Screenshot</th>
@@ -155,7 +153,6 @@
         <tbody>
             {% for data in datas %}
             <tr>
-                <td>{{ data.id }}</td>
                 <td>{{ data.name }}</td>
                 <td>{{ data.mobilenumber }}</td>
                 <td>{{ data.dept }}</td>
@@ -164,7 +161,6 @@
                 <td>{{ data.teamname if data.teamname else 'Individual' }}</td>
                 <td>{{ data.team_size }}</td>
                 <td>{{ data.team_members if data.team_members else 'No team members' }}</td>
-                <td>{{ data.events }}</td>
                 <td>{{ data.expected_amount }}</td>
                 <td>{{ data.transaction_id }}</td>
                 <td>

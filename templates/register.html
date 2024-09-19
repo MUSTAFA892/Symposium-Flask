@@ -18,7 +18,7 @@
             align-items: center;
             justify-content: center;
             background: #EFEAE3;
-            padding: 20px; /* Add some padding to prevent content from touching edges on small screens */
+            padding: 20px;
         }
         .wrapper {
             position: relative;
@@ -30,33 +30,32 @@
             box-shadow: 0 5px 10px rgba(0,0,0,0.2);
         }
         .wrapper h1 {
-            position: relative;
             font-size: 24px;
             font-weight: 700;
             color: #333;
-            margin-bottom: 20px; /* Add margin to separate from the content */
+            margin-bottom: 20px;
         }
         .wrapper h1::before {
             content: '';
             position: absolute;
             left: 0;
-            bottom: -10px; /* Adjust position to be below the text */
+            bottom: -10px;
             height: 3px;
             width: 100%;
             border-radius: 12px;
             background: #ff9100;
         }
         .wrapper form {
-            margin-top: 20px; /* Adjust margin to separate from the heading */
+            margin-top: 20px;
         }
         .form-group {
             display: flex;
             flex-direction: column;
-            margin-bottom: 20px; /* Increase bottom margin for better spacing */
+            margin-bottom: 20px;
         }
         .form-group label {
             font-weight: bold;
-            margin-bottom: 8px; /* Increase bottom margin for better spacing */
+            margin-bottom: 8px;
         }
         .form-group input,
         .form-group select {
@@ -76,73 +75,25 @@
         .form-group select:focus {
             border-color: #ff9100;
         }
-        #team-members {
-            margin-top: 20px;
-        }
-        form h3 {
-            color: #333;
-            font-size: 17px;
-            font-weight: 700;
-            margin: 20px 0;
-        }
-        .team-member-input {
-            height: 52px;
-            width: 100%;
-            margin-bottom: 10px;
-            border: 1.5px solid #C7BEBE;
-            border-bottom-width: 2.5px;
-            border-radius: 6px;
-            padding: 10px 15px;
-            font-size: 17px;
-            font-weight: 400;
-            color: #333;
-        }
-        #team-member-form {
-            width: 100%;
-        }
-        .checkbox-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .optgroup {
-            flex: 1;
-        }
-        .group-label {
-            font-weight: bold;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .optgroup label {
-            display: block;
-            margin-bottom: 8px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        .optgroup label:hover {
-            background-color: #f1f1f1;
-        }
-        .optgroup input[disabled] + span {
-            color: #999;
-        }
-        .optgroup input[disabled] {
-            cursor: not-allowed;
-        }
         .hidden {
             display: none;
         }
-        .events-label {
-            font-weight: bold;
-            margin: 20px 0 10px;
+        .note-box {
+            background-color: #e6f9e6;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 6px;
+            border: 1px solid #b0e0b0;
         }
-        .warning {
-            color: #d8000c;
-            background-color: #ffd2d2;
-            border: 1px solid #d8000c;
-            padding: 10px;
-            border-radius: 4px;
-            margin-top: 10px;
-            display: none;
+        .note-box h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .note-box p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 8px;
         }
         .button {
             height: 52px;
@@ -159,44 +110,20 @@
         .button:hover {
             background-color: #ff9100;
         }
-        .note-box {
-            background-color: #e6f9e6;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 6px;
-        }
-        .note-box h2 {
-            font-size: 18px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .note-box p {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 8px; /* Adjust margin for list items */
-        }
-        .no-color-link {
-            text-decoration: none; /* Remove underline */
-            color: inherit; /* Inherit color from parent */
-        }
-        .no-color-link:hover,
-        .no-color-link:active,
-        .no-color-link:visited {
-            color: inherit; /* Maintain inherited color */
-            text-decoration: none; /* Remove underline */
-        }
     </style>
 </head>
 <body>
     <div class="wrapper">
         <h1>Spectragenix Registration</h1>
+        
         <div class="note-box">
             <h2>Note:</h2>
-            <p>• The symposium will start at 9:00 AM on October 1.</p>
+            <p>• The participants are requested to be present on the campus at 8:15 AM.</p>
+            <p>• Accommodations will not be provided.</p>
             <p>• Food and refreshments will be provided.</p>
-            <p>• Check the rules of the events before enrolling. (Use laptop or desktop view from mobile to check the rules)</p>
             <p>• Send your queries to <a href="mailto:spectragenix@gmail.com" class="no-color-link">spectragenix24@gmail.com</a>.</p>
         </div>
+
         <form action="/registering" method="post">
             <div class="form-group">
                 <label for="name">Name:</label>
@@ -204,7 +131,7 @@
             </div>
             <div class="form-group">
                 <label for="mobilenumber">Mobile Number:</label>
-                <input type="text" name="mobilenumber" title="Error Message" pattern="[1-9]{1}[0-9]{9}" placeholder="Enter your number" required>
+                <input type="text" name="mobilenumber" pattern="[1-9]{1}[0-9]{9}" placeholder="Enter your number" required>
             </div>
             <div class="form-group">
                 <label for="dept">Department:</label>
@@ -229,33 +156,25 @@
                 </select>
             </div>
 
+            <div id="team-name" class="hidden">
+                <div class="form-group">
+                    <label for="teamname">Team Name:</label>
+                    <input type="text" id="teamname" name="teamname" placeholder="Enter your team name">
+                </div>
+            </div>
+
             <div id="team-members" class="hidden">
                 <h3>Enter Team Details:</h3>
                 <div id="team-member-form"></div>
             </div>
 
-            <label class="events-label">Select events (Maximum 2 Technical, 2 Non-Technical, Total 4 events):</label>
-            <div class="checkbox-container">
-                <div class="optgroup" id="technical-events">
-                    <span class="group-label"><a href="/technical" class="no-color-link">Technical events:</a></span>
-                    <label><input type="checkbox" name="events" value="Paper Presentation"> <span>Paper Presentation</span></label>
-                    <label><input type="checkbox" name="events" value="Best Prompting"> <span>Best Prompting</span></label>
-                    <label><input type="checkbox" name="events" value="Tech Pictionary"> <span>Tech Pictionary</span></label>
-                    <label><input type="checkbox" name="events" value="Connectix"> <span>Connectix</span></label>
-                    <label><input type="checkbox" name="events" value="Technical Quiz"> <span>Technical Quiz</span></label>
-                </div>
-                <div class="optgroup" id="non-technical-events">
-                    <span class="group-label"><a href="/non-technical" class="no-color-link">Non-technical events:</a></span>
-                    <label><input type="checkbox" id="special-event-checkbox" name="events" value="Ipl Auction"> <span>Ipl Auction</span></label>
-                    <label><input type="checkbox" name="events" value="PUBG/Freefire/PES"> <span>PUBG/Freefire/PES</span></label>
-                    <label><input type="checkbox" name="events" value="Chess"> <span>Chess</span></label>
-                    <label><input type="checkbox" name="events" value="Photography"> <span>Photography</span></label>
-                    <label><input type="checkbox" name="events" value="Reel Making"> <span>Reel Making</span></label>
-                </div>
+            <div class="note-box">
+                <h2>Important:</h2>
+                <p>• Ensure all information is filled out correctly.</p>
+                <p>• Payment must be completed for registration to be confirmed.</p>
+                <p>• Event registration form will be sent to the given email after registration.</p>
             </div>
 
-            <div class="warning" id="warning"></div>
-            <br>
             <div class="form-group">
                 <input type="submit" value="Pay Now" class="button">
             </div>
@@ -266,138 +185,43 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const checkboxes = document.querySelectorAll('.optgroup input[type="checkbox"]');
-            const warning = document.getElementById('warning');
             const teamSizeDropdown = document.getElementById('team-size');
             const teamMembersDiv = document.getElementById('team-members');
             const teamMemberForm = document.getElementById('team-member-form');
-            const specialEvents = ['Ipl Auction', 'PUBG/Freefire/PES', 'Chess'];
-            const form = document.querySelector('form');
-    
-            function updateCheckboxes() {
-                const selectedTechnical = document.querySelectorAll('#technical-events input[type="checkbox"]:checked').length;
-                const selectedNonTechnical = document.querySelectorAll('#non-technical-events input[type="checkbox"]:checked').length;
-                const totalSelected = selectedTechnical + selectedNonTechnical;
-    
-                const specialEventsSelected = specialEvents.filter(event => document.querySelector(`input[value="${event}"]:checked`)).length;
-    
-                checkboxes.forEach(checkbox => {
-                    const value = checkbox.value;
-                    const isTechnical = checkbox.closest('#technical-events') !== null;
-                    const isNonTechnical = checkbox.closest('#non-technical-events') !== null;
-    
-                    if (totalSelected >= 4 && !checkbox.checked) {
-                        checkbox.disabled = true;
-                    } else if (isTechnical && selectedTechnical >= 2 && !checkbox.checked) {
-                        checkbox.disabled = true;
-                    } else if (isNonTechnical && selectedNonTechnical >= 2 && !checkbox.checked) {
-                        checkbox.disabled = true;
-                    } else if (specialEvents.includes(value) && specialEventsSelected > 1 && !checkbox.checked) {
-                        checkbox.disabled = true;
-                    } else {
-                        checkbox.disabled = false;
-                    }
-                });
-    
-                if (totalSelected > 4) {
-                    warning.textContent = "You can select up to four events in total.";
-                    warning.style.display = 'block';
-                } else if (totalSelected < 1) {
-                    warning.textContent = "You must select at least one event.";
-                    warning.style.display = 'block';
-                } else if (selectedTechnical > 2) {
-                    warning.textContent = "You can select up to two technical events only.";
-                    warning.style.display = 'block';
-                } else if (selectedNonTechnical > 2) {
-                    warning.textContent = "You can select up to two non-technical events only.";
-                    warning.style.display = 'block';
-                } else if ((specialEventsSelected > 1) && (teamSizeDropdown.value === '1')) {
-                    warning.textContent = "You can select only one of PUBG/Freefire/PES, or Chess.";
-                    warning.style.display = 'block';
-                } else if ((specialEventsSelected > 1) && (teamSizeDropdown.value != '1')) {
-                    warning.textContent = "You can select only one of IPL Auction or PUBG/Freefire/PES or Chess.";
-                    warning.style.display = 'block';
-                } else {
-                    warning.textContent = "";
-                    warning.style.display = 'none';
-                }
-            }
-    
+            const teamNameDiv = document.getElementById('team-name');
+
             function updateEventVisibility() {
-                const selectedSize = teamSizeDropdown.value;
-    
+                const selectedSize = parseInt(teamSizeDropdown.value);
+
+                // Reset visibility for team fields
+                teamNameDiv.classList.add('hidden');
+                teamMembersDiv.classList.add('hidden');
+                teamMemberForm.innerHTML = '';
+
+                // Show/hide team name and team members based on selected size
                 if (selectedSize > 1) {
+                    teamNameDiv.classList.remove('hidden');
                     teamMembersDiv.classList.remove('hidden');
-                    teamMemberForm.innerHTML = '';
-    
-                    const teamNameDiv = document.createElement('div');
-                    teamNameDiv.classList.add('form-group');
-                    teamNameDiv.innerHTML = `
-                        <label for="teamname">Team Name:</label>
-                        <input type="text" id="teamname" name="teamname" placeholder="Enter team name" class="team-member-input">
-                    `;
-                    teamMemberForm.appendChild(teamNameDiv);
-    
-                    const memberLabelDiv = document.createElement('div');
-                    memberLabelDiv.classList.add('form-group');
-                    memberLabelDiv.innerHTML = `
-                        <label>Teammate Names:</label>
-                    `;
-                    teamMemberForm.appendChild(memberLabelDiv);
-    
+
                     for (let i = 2; i <= selectedSize; i++) {
                         const memberDiv = document.createElement('div');
                         memberDiv.classList.add('form-group');
                         memberDiv.innerHTML = `
-                            <input type="text" id="teammate${i-1}" name="teammate${i-1}" placeholder="Enter teammate ${i-1} name" class="team-member-input">
+                            <label for="teammate${i-1}-name">Teammate ${i-1} Name:</label>
+                            <input type="text" id="teammate${i-1}-name" name="teammate${i-1}-name" placeholder="Enter teammate ${i-1} name">
+                            <label for="teammate${i-1}-email">Teammate ${i-1} Email:</label>
+                            <input type="email" id="teammate${i-1}-email" name="teammate${i-1}-email" placeholder="Enter teammate ${i-1} email" >
+                            <label for="teammate${i-1}-phone">Teammate ${i-1} Phone:</label>
+                            <input type="text" id="teammate${i-1}-phone" name="teammate${i-1}-phone" pattern="[1-9]{1}[0-9]{9}" placeholder="Enter teammate ${i-1} phone">
                         `;
                         teamMemberForm.appendChild(memberDiv);
                     }
-                } else {
-                    teamMembersDiv.classList.add('hidden');
                 }
-    
-                checkboxes.forEach(checkbox => {
-                    if (checkbox.value === 'Ipl Auction' || checkbox.value === 'Technical Quiz' || checkbox.value === 'Tech Pictionary') {
-                        if (selectedSize === '1') {
-                            checkbox.disabled = true;
-                            checkbox.checked = false;
-                            checkbox.closest('label').style.display = 'none';
-                        } else {
-                            checkbox.disabled = false;
-                            checkbox.closest('label').style.display = 'block';
-                        }
-                    }
-                });
-    
-                updateCheckboxes();
             }
-    
-            updateEventVisibility();
-    
+
             teamSizeDropdown.addEventListener('change', updateEventVisibility);
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', updateCheckboxes);
-            });
-    
-            form.addEventListener('submit', function(event) {
-                const warningText = warning.textContent.trim();
-                if (warningText) {
-                    event.preventDefault();
-                    alert('Please choose valid events before submitting the form.');
-                }
-            });
-    
-            // Reset form on back navigation
-            window.addEventListener('pageshow', function(event) {
-                if (event.persisted) {
-                    form.reset();
-                    updateEventVisibility(); // Reset event visibility
-                    warning.style.display = 'none'; // Hide warning
-                }
-            });
+            updateEventVisibility(); // Call initially to set the state correctly
         });
     </script>
-    
 </body>
 </html>
