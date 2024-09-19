@@ -273,21 +273,19 @@
             const teamMemberForm = document.getElementById('team-member-form');
             const specialEvents = ['Ipl Auction', 'PUBG/Freefire/PES', 'Chess'];
             const form = document.querySelector('form');
-
+    
             function updateCheckboxes() {
                 const selectedTechnical = document.querySelectorAll('#technical-events input[type="checkbox"]:checked').length;
                 const selectedNonTechnical = document.querySelectorAll('#non-technical-events input[type="checkbox"]:checked').length;
                 const totalSelected = selectedTechnical + selectedNonTechnical;
-
-                // Count how many special events are selected
+    
                 const specialEventsSelected = specialEvents.filter(event => document.querySelector(`input[value="${event}"]:checked`)).length;
-
-                // Disable checkboxes based on selection limits
+    
                 checkboxes.forEach(checkbox => {
                     const value = checkbox.value;
                     const isTechnical = checkbox.closest('#technical-events') !== null;
                     const isNonTechnical = checkbox.closest('#non-technical-events') !== null;
-
+    
                     if (totalSelected >= 4 && !checkbox.checked) {
                         checkbox.disabled = true;
                     } else if (isTechnical && selectedTechnical >= 2 && !checkbox.checked) {
@@ -300,13 +298,12 @@
                         checkbox.disabled = false;
                     }
                 });
-
-                // Show warning messages based on validation
+    
                 if (totalSelected > 4) {
                     warning.textContent = "You can select up to four events in total.";
                     warning.style.display = 'block';
                 } else if (totalSelected < 1) {
-                    warning.textContent = "You must select atleast one event.";
+                    warning.textContent = "You must select at least one event.";
                     warning.style.display = 'block';
                 } else if (selectedTechnical > 2) {
                     warning.textContent = "You can select up to two technical events only.";
@@ -322,19 +319,17 @@
                     warning.style.display = 'block';
                 } else {
                     warning.textContent = "";
-                    warning.style.display = 'none'; // Hide warning if no issues
+                    warning.style.display = 'none';
                 }
             }
-
+    
             function updateEventVisibility() {
                 const selectedSize = teamSizeDropdown.value;
-
+    
                 if (selectedSize > 1) {
-                    // Show team member inputs
                     teamMembersDiv.classList.remove('hidden');
                     teamMemberForm.innerHTML = '';
-
-                    // Add team name input
+    
                     const teamNameDiv = document.createElement('div');
                     teamNameDiv.classList.add('form-group');
                     teamNameDiv.innerHTML = `
@@ -342,15 +337,14 @@
                         <input type="text" id="teamname" name="teamname" placeholder="Enter team name" class="team-member-input">
                     `;
                     teamMemberForm.appendChild(teamNameDiv);
-
-                    // Add teammate names inputs
+    
                     const memberLabelDiv = document.createElement('div');
                     memberLabelDiv.classList.add('form-group');
                     memberLabelDiv.innerHTML = `
                         <label>Teammate Names:</label>
                     `;
                     teamMemberForm.appendChild(memberLabelDiv);
-
+    
                     for (let i = 2; i <= selectedSize; i++) {
                         const memberDiv = document.createElement('div');
                         memberDiv.classList.add('form-group');
@@ -360,43 +354,50 @@
                         teamMemberForm.appendChild(memberDiv);
                     }
                 } else {
-                    // Hide team member inputs
                     teamMembersDiv.classList.add('hidden');
                 }
-
-                // Hide and disable 'Ipl Auction' if team size is '1'
+    
                 checkboxes.forEach(checkbox => {
                     if (checkbox.value === 'Ipl Auction' || checkbox.value === 'Technical Quiz' || checkbox.value === 'Tech Pictionary') {
                         if (selectedSize === '1') {
                             checkbox.disabled = true;
-                            checkbox.checked = false; // Ensure it's unchecked
-                            checkbox.closest('label').style.display = 'none'; // Hide the label
+                            checkbox.checked = false;
+                            checkbox.closest('label').style.display = 'none';
                         } else {
                             checkbox.disabled = false;
-                            checkbox.closest('label').style.display = 'block'; // Show the label
+                            checkbox.closest('label').style.display = 'block';
                         }
                     }
                 });
-
+    
                 updateCheckboxes();
             }
-
-            // Initialize the form state based on the default value of the team size dropdown
+    
             updateEventVisibility();
-
+    
             teamSizeDropdown.addEventListener('change', updateEventVisibility);
             checkboxes.forEach(checkbox => {
                 checkbox.addEventListener('change', updateCheckboxes);
             });
-
+    
             form.addEventListener('submit', function(event) {
                 const warningText = warning.textContent.trim();
                 if (warningText) {
-                    event.preventDefault(); // Prevent form submission
+                    event.preventDefault();
                     alert('Please choose valid events before submitting the form.');
+                }
+            });
+    
+            // Reset form on back navigation
+            window.addEventListener('pageshow', function(event) {
+                if (event.persisted) {
+                    form.reset();
+                    updateEventVisibility(); // Reset event visibility
+                    warning.style.display = 'none'; // Hide warning
                 }
             });
         });
     </script>
+    
 </body>
 </html>
