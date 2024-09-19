@@ -255,7 +255,7 @@
             </div>
 
             <div class="warning" id="warning"></div>
-
+            <br>
             <div class="form-group">
                 <input type="submit" value="Pay Now" class="button">
             </div>
@@ -304,6 +304,9 @@
                 // Show warning messages based on validation
                 if (totalSelected > 4) {
                     warning.textContent = "You can select up to four events in total.";
+                    warning.style.display = 'block';
+                } else if (totalSelected < 1) {
+                    warning.textContent = "You must select atleast one event.";
                     warning.style.display = 'block';
                 } else if (selectedTechnical > 2) {
                     warning.textContent = "You can select up to two technical events only.";
