@@ -421,7 +421,112 @@ body {
 }
 }
 
-</style></div><div data-animation="default" class="header w-nav" data-easing2="ease-in" fs-scrolldisable-element="smart-nav" data-easing="ease-out" data-collapse="small" data-w-id="489064cb-9577-b618-a8e4-54da4629fd67" role="banner" data-duration="400"><div class="header_container"><a href="/" class="header_logo-link w-nav-brand" aria-label="home"><img src="/static/images/logo.png" loading="lazy" alt="Sundown Studio Logo" class="header_logo" style="width: 500px; height: auto;"></a><nav role="navigation" class="header_menu w-nav-menu"><a href="/" class="header_link reveal-circle w-inline-block"><div class="header_link_dot"></div><div class="header_link_text">Home</div></a><a href="/technical" aria-current="page" class="header_link reveal-circle w-inline-block w--current"><div class="header_link_dot"></div><div class="header_link_text">Technical events</div></a><a href="/non-technical" aria-current="page" class="header_link reveal-circle w-inline-block w--current"><div class="header_link_dot"></div><div class="header_link_text">Non-Technical events</div></a><a href="/fun" aria-current="page" class="header_link reveal-circle w-inline-block w--current"><div class="header_link_dot"></div><div class="header_link_text">Fun events</div></a><a href="/members" aria-current="page" class="header_link reveal-circle w-inline-block w--current"><div class="header_link_dot"></div><div class="header_link_text">Members</div></a><a href="/register" class="header_link reveal-circle w-inline-block"><div class="header_link_dot"></div><div class="header_link_text">Register</div></a></nav><div fs-scrolldisable-element="toggle" class="header_menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false"><div class="menu_link"><div class="menu-icon"><div class="menu-icon_line-top"></div><div class="menu-icon_line-bottom"></div></div><div class="menu_link_text">Menu</div></div></div></div><div class="header_overlay"></div><div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div></div><main class="main-wrapper"><section class="studio_hero_section"><div class="studio_heading"><div class="hero-text_1"><div style="transform: translate3d(0px, 1mm, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;margin-left:100px" class="heading-style-display">SpectraGenix'24</div></div><div class="hero-text_2"><div style="transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="heading-style-display">Team</div></div><div class="hero-text_3"><div style="transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="heading-style-display">Members</div></div><div data-w-id="f31ef841-cb39-df5f-8702-97394fae26f8" style="opacity: 1;" class="studio-gradient-wrapper"><div class="who-shapes-wrapper"><div style="transform: translate3d(-0.1497%, 0.2495%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; will-change: transform;" class="who-shape-2"></div><div style="transform: translate3d(-0.22455%, 0.17465%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(2.2455deg) skew(0.2495deg, 0deg); transform-style: preserve-3d; will-change: transform;" class="who-shape-1"></div></div></div></div>
+.wrapper {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  border: 1px transparent;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 12px 35px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 20px;
+  text-transform: uppercase;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+.svg-btn {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin-left: 30px;
+}
+
+</style></div>
+<div data-animation="default" class="header w-nav" data-easing2="ease-in" fs-scrolldisable-element="smart-nav" data-easing="ease-out" data-collapse="small" data-w-id="489064cb-9577-b618-a8e4-54da4629fd67" role="banner" data-duration="400">
+   <div class="header_container">
+      <a href="/" class="header_logo-link w-nav-brand" aria-label="home"><img src="/static/images/logo.png" loading="lazy" alt="Sundown Studio Logo" class="header_logo" style="width: 500px; height: auto;"></a>
+      <nav role="navigation" class="header_menu w-nav-menu">
+         <a href="/" class="header_link reveal-circle w-inline-block">
+            <div class="header_link_dot"></div>
+            <div class="header_link_text">Home</div>
+         </a>
+         <a href="/templates/technical.html" aria-current="page" class="header_link reveal-circle w-inline-block w--current">
+            <div class="header_link_dot"></div>
+            <div class="header_link_text">Technical events</div>
+         </a>
+         <a href="/templates/non-technical.html" aria-current="page" class="header_link reveal-circle w-inline-block w--current">
+            <div class="header_link_dot"></div>
+            <div class="header_link_text">Non-Technical events</div>
+         </a>
+         <a href="/templates/fun.html" aria-current="page" class="header_link reveal-circle w-inline-block w--current">
+            <div class="header_link_dot"></div>
+            <div class="header_link_text">Fun events</div>
+         </a>
+         <a href="/templates/members.html" class="header_link reveal-circle w-inline-block w--current">
+            <div class="header_link_dot"></div>
+            <div class="header_link_text">Members</div>
+         </a>
+        <a  href="/templates/register.html" class="button">Register Now</a>
+      </nav>
+      <div fs-scrolldisable-element="toggle" class="header_menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
+         <div class="menu_link">
+            <div class="menu-icon">
+               <div class="menu-icon_line-top"></div>
+               <div class="menu-icon_line-bottom"></div>
+            </div>
+            <div class="menu_link_text">Menu</div>
+         </div>
+      </div>
+   </div>
+   <div class="header_overlay"></div>
+   <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
+</div>
+<main class="main-wrapper">
+<section class="studio_hero_section">
+<div class="studio_heading">
+   <div class="hero-text_1">
+      <div style="transform: translate3d(0px, 1mm, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="heading-style-display">SpectraGenix'24</div>
+   </div>
+   <div class="hero-text_2">
+      <div style="transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="heading-style-display">Fun</div>
+   </div>
+   <div class="hero-text_3">
+      <div style="transform: translate3d(0px, 0%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;" class="heading-style-display">events</div>
+   </div>
+   <div data-w-id="f31ef841-cb39-df5f-8702-97394fae26f8" style="opacity: 1;" class="studio-gradient-wrapper">
+      <div class="who-shapes-wrapper">
+         <div style="transform: translate3d(-0.1497%, 0.2495%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d; will-change: transform;" class="who-shape-2"></div>
+         <div style="transform: translate3d(-0.22455%, 0.17465%, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(2.2455deg) skew(0.2495deg, 0deg); transform-style: preserve-3d; will-change: transform;" class="who-shape-1"></div>
+      </div>
+   </div>
+</div>
   <section>
     <section>
   <!-- First Studio Content -->

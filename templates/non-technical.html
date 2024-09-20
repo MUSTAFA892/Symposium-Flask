@@ -319,6 +319,54 @@ body {
   z-index: 9999;  
 }
 
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  border: 1px transparent;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 12px 35px;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 20px;
+  text-transform: uppercase;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+
+@-webkit-keyframes glowing {
+  0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+}
+
+@keyframes glowing {
+  0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+  50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+  100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+}
+
+.svg-btn {
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin-left: 30px;
+}
+
 </style></div>
 <div data-animation="default" class="header w-nav" data-easing2="ease-in" fs-scrolldisable-element="smart-nav" data-easing="ease-out" data-collapse="small" data-w-id="489064cb-9577-b618-a8e4-54da4629fd67" role="banner" data-duration="400">
    <div class="header_container">
@@ -328,26 +376,23 @@ body {
             <div class="header_link_dot"></div>
             <div class="header_link_text">Home</div>
          </a>
-         <a href="/technical" aria-current="page" class="header_link reveal-circle w-inline-block w--current">
+         <a href="/templates/technical.html" aria-current="page" class="header_link reveal-circle w-inline-block w--current">
             <div class="header_link_dot"></div>
             <div class="header_link_text">Technical events</div>
          </a>
-         <a href="/non-technical" aria-current="page" class="header_link reveal-circle w-inline-block w--current">
+         <a href="/templates/non-technical.html" aria-current="page" class="header_link reveal-circle w-inline-block w--current">
             <div class="header_link_dot"></div>
             <div class="header_link_text">Non-Technical events</div>
          </a>
-         <a href="/fun" aria-current="page" class="header_link reveal-circle w-inline-block w--current">
+         <a href="/templates/fun.html" aria-current="page" class="header_link reveal-circle w-inline-block w--current">
             <div class="header_link_dot"></div>
             <div class="header_link_text">Fun events</div>
          </a>
-         <a href="/members" class="header_link reveal-circle w-inline-block w--current">
+         <a href="/templates/members.html" class="header_link reveal-circle w-inline-block w--current">
             <div class="header_link_dot"></div>
             <div class="header_link_text">Members</div>
          </a>
-         <a href="/register" class="header_link reveal-circle w-inline-block">
-            <div class="header_link_dot"></div>
-            <div class="header_link_text">Register</div>
-         </a>
+        <a  href="/templates/register.html" class="button">Register Now</a>
       </nav>
       <div fs-scrolldisable-element="toggle" class="header_menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
          <div class="menu_link">
@@ -593,7 +638,7 @@ body {
     <ul>
         <li><strong>Event Setup:</strong>
             <ul>
-                <li><strong>Format:</strong> Swiss system with multiple rounds (5 or 6 rounds) without elimination.</li>
+                <li><strong>Format:</strong> Swiss system with multiple rounds (5 or 6 rounds) without elimination. Buchholz tie break shall be applied under neccessary situations.</li>
                 <li><strong>Date and Venue:</strong> To be chosen on campus.</li>
                 <li><strong>Basic Rules:</strong> Standard chess rules apply (e.g., checkmate, draw conditions, touch-move).</li>
             </ul>
@@ -601,8 +646,8 @@ body {
 
         <li><strong>Registration:</strong>
             <ul>
-                <li><strong>Sign-Up:</strong> Create a registration form with a deadline for students to register.</li>
-                <li><strong>Participants:</strong> Confirm the list of players before the event.</li>
+                <li><strong>Sign-Up:</strong> Forms provided to be filled before the deadline.</li>
+                <li><strong>Participants:</strong> List of players will be confirmed before the event.</li>
             </ul>
         </li>
 
