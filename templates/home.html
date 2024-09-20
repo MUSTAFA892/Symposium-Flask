@@ -17,9 +17,59 @@
         <h1>Create</h1>
         <h1>Innovate</h1>
     </div>
-
+    
     <div id="fixed-image"></div>
 
+    <div>
+        <style>
+                .wrapper {
+                display: flex;
+                height: 100vh;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                }
+
+                .button {
+                border: 1px transparent;
+                -webkit-border-radius: 50px;
+                border-radius: 50px;
+                color: #FFFFFF;
+                cursor: pointer;
+                display: inline-block;
+                font-family: Arial;
+                font-size: 20px;
+                padding: 12px 35px;
+                text-align: center;
+                text-decoration: none;
+                margin-left: 20px;
+                text-transform: uppercase;
+                -webkit-animation: glowing 1500ms infinite;
+                -moz-animation: glowing 1500ms infinite;
+                -o-animation: glowing 1500ms infinite;
+                animation: glowing 1500ms infinite;
+                }
+
+                @-webkit-keyframes glowing {
+                0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+                50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+                100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+                }
+
+                @keyframes glowing {
+                0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+                50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+                100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+                }
+
+                .svg-btn {
+                display: block;
+                width: 100px;
+                height: 100px;
+                margin-left: 30px;
+                }
+        </style>
+    </div>
     <div id="main">
         <div id="page1">
             <nav>
@@ -30,7 +80,7 @@
                     <h4><a href="/non-technical">Non-Technical events</a></h4>
                     <h4><a href="/fun">Fun Events</a></h4>
                     <h4><a href="/members">Members</a></h4>
-                    <h4><a href="/register">Register</a></h4>
+                    <h4><a href="/register" class = "button">Register</a></h4>
                 </div>
                 <h3>Menu</h3>
             </nav>
