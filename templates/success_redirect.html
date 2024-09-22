@@ -4,20 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success</title>
-    <script>
-        // Function to show the alert box and redirect
-        function showAlertAndRedirect() {
-            alert("Registered successfully!");
-            window.location.href = "/register";
+    <style>
+        /* Style to center content and make it responsive */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
         }
 
-        // Show the alert box and redirect when the page loads
+        /* Container for the image and button */
+        #content {
+            display: none; /* Hidden by default */
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card effect */
+        }
+
+        /* Style for the image */
+        img {
+            max-width: 100%;
+            height: auto;
+            width: 800px; /* Increased size to twice the original (400px -> 800px) */
+            margin-bottom: 30px; /* Space between the image and the button */
+            border-radius: 8px; /* Optional: rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Image shadow */
+        }
+
+        /* Style for the button */
+        button {
+            padding: 20px 40px; /* Increased padding to make the button larger */
+            font-size: 24px; /* Larger font size to match the increased size */
+            cursor: pointer;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        /* Button hover effect */
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Center the button below the image */
+        #content button {
+            margin: 0 auto;
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // Function to show the alert box
+        function showAlertAndRevealContent() {
+            alert("Registered successfully!");
+            // Show the image and button after alert is closed
+            document.getElementById('content').style.display = 'block';
+        }
+
+        // Redirect to the members page when the "Done" button is clicked
+        function goToMembersPage() {
+            window.location.href = "/"; // Adjust the URL to the correct one
+        }
+
+        // Run the alert on page load
         window.onload = function() {
-            showAlertAndRedirect();
+            showAlertAndRevealContent();
         }
     </script>
 </head>
 <body>
-    <!-- The alert box and redirection will occur automatically -->
+    <!-- Hidden content that will appear after the alert is closed -->
+    <div id="content">
+        <img src="/static/images/Success.jpg" alt="Success Image">
+        <!-- Add the text here -->
+        <p><b>Your registration was successful. You will receive an email shortly from our team.<b></p>
+        <p>Feel free to explore more about us in our home and members tab.</p>
+        <!-- Button will be centered below the image -->
+        <button onclick="goToMembersPage()">Back to home</button>
+    </div>
 </body>
 </html>
