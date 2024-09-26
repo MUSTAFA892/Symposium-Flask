@@ -24,7 +24,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Card effect */
         }
-
+        
         /* Style for the image */
         img {
             max-width: 100%;
@@ -37,8 +37,8 @@
 
         /* Style for the button */
         button {
-            padding: 20px 40px; /* Increased padding to make the button larger */
-            font-size: 24px; /* Larger font size to match the increased size */
+            padding: 20px 20px; /* Increased padding to make the button larger */
+            font-size: 15px; /* Larger font size to match the increased size */
             cursor: pointer;
             border: none;
             background-color: #007bff;
@@ -59,6 +59,52 @@
             display: block;
             margin-top: 20px;
         }
+        .wrapper {
+                display: flex;
+                height: 100vh;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                }
+
+                #register {
+                border: 1px transparent;
+                -webkit-border-radius: 50px;
+                border-radius: 50px;
+                color: #FFFFFF;
+                cursor: pointer;
+                display: inline-block;
+                font-family: Arial;
+                font-size: 28px;
+                padding: 18px 25px;
+                text-align: center;
+                text-decoration: none;
+                margin-left: 20px;
+                text-transform: uppercase;
+                -webkit-animation: glowing 1500ms infinite;
+                -moz-animation: glowing 1500ms infinite;
+                -o-animation: glowing 1500ms infinite;
+                animation: glowing 1500ms infinite;
+                }
+
+                @-webkit-keyframes glowing {
+                0% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+                50% { background-color: #FF0000; -webkit-box-shadow: 0 0 40px #FF0000; }
+                100% { background-color: #B20000; -webkit-box-shadow: 0 0 3px #B20000; }
+                }
+
+                @keyframes glowing {
+                0% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+                50% { background-color: #FF0000; box-shadow: 0 0 40px #FF0000; }
+                100% { background-color: #B20000; box-shadow: 0 0 3px #B20000; }
+                }
+
+                .svg-btn {
+                display: block;
+                width: 80px;
+                height: 80px;
+                margin-left: 30px;
+                }
     </style>
     <script>
         // Function to show the alert box
@@ -86,6 +132,11 @@
         <!-- Add the text here -->
         <p><b>Your registration was successful. You will receive an email shortly from our team.<b></p>
         <p>Feel free to explore more about us in our home and members tab.</p>
+        <p style="font-size: 20px; color: green; margin-bottom: 20px;">
+            Please note:
+            Click the button below to complete your registration. Without registering, you will not be able to participate in the symposium.
+        </p>
+        <a href="/register" id = "register">Register For Events</a>
         <!-- Button will be centered below the image -->
         <button onclick="goToMembersPage()">Back to home</button>
     </div>
