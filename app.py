@@ -147,9 +147,9 @@ def technical():
 def non_technical():
     return render_template("non-technical.html")
 
-@app.route('/register')
-def register():
-    return render_template("register.html")
+# @app.route('/register')
+# def register():
+#     return render_template("register.html")
 
 @app.route('/payment')
 def payment():
