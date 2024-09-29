@@ -248,6 +248,47 @@ nav h3 {
     margin: 1vw 2vw;
 }
 
+#page23 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #EFEAE3;
+    padding: 8vw 0;
+    position: relative;
+}
+
+#moving-text-first {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#moving-text-first::-webkit-scrollbar {
+    display: none;
+}
+
+.con-first {
+    white-space: nowrap;
+    display: inline-block;
+    animation-name: move;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#moving-text-first h1 {
+    font-size: 2vw;
+    /* background-color: lightblue; */
+    display: inline-block;
+}
+
+#gola-first {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #FE320A;
+    margin: 1vw 2vw;
+}
+
 @keyframes move {
     from {
         transform: translateX(0);

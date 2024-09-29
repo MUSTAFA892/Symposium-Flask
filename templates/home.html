@@ -68,6 +68,57 @@
                 height: 100px;
                 margin-left: 30px;
                 }
+
+        
+                a {
+                    text-decoration: none;
+                    color: #000;
+                }
+                
+                .marquee {
+                  height: 35px;
+                  width: 100%;
+                
+                  overflow: hidden;
+                  position: relative;
+                  background-color: #e9e5fb;  
+                  border-top: 1px solid black;
+                  border-bottom: 1px solid black;
+                  padding: 8px 0 4px 0;
+                }
+                
+                .marquee div {
+                  display: inline-block;
+                  width: 300%;
+                  height: 40px;
+                
+                  position: absolute;
+                  overflow: hidden;
+                
+                  animation: marquee 30s linear infinite;
+                }
+                
+                .marquee span {
+                  float: left;
+                  width: 1100px;
+                }
+                
+                .marquee:hover div {
+                  animation-play-state: paused;
+                }
+                
+                @keyframes marquee {
+                  0% { left: 0%; }
+                  100% { left: -1100px; }
+                }
+                
+                /* @import must be at top of file, otherwise CSS will not work */
+                @import url("//hello.myfonts.net/count/3909a7");
+                
+                  
+                @font-face {font-family: 'UniversLTPro-Ex';src: url('webfonts/3909A7_0_0.eot');src: url('webfonts/3909A7_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/3909A7_0_0.woff2') format('woff2'),url('webfonts/3909A7_0_0.woff') format('woff'),url('webfonts/3909A7_0_0.ttf') format('truetype');}
+                 
+       
         </style>
     </div>
     <div id="main">
@@ -80,11 +131,41 @@
                     <h4><a href="/non-technical">Non-Technical events</a></h4>
                     <h4><a href="/fun">Fun Events</a></h4>
                     <h4><a href="/members">Members</a></h4>
-                    <a href="/register" class = "button">Register</a>
+                    <!-- <a href="/register" class = "button">Register</a> -->
                 </div>
                 <h3>Menu</h3>
             </nav>
 
+            <div class="marquee">
+                <div>
+                    <a>The Registrations Are Closed 🟠</a>
+                    <a>The Registrations Are Closed 🟠</a>
+                    <a>The Registrations Are Closed 🟠</a>
+                    <a>The Registrations Are Closed 🟠</a>
+                    <a>The Registrations Are Closed 🟠</a>
+                    <a>The Registrations Are Closed 🟠</a>
+                    <a>The Registrations Are Closed 🟠</a>
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                    <a>The Registrations Are Closed 🟠</a>                
+                </div>
+              </div>
+            
             <div id="center">
                 <div id="left">
                     <video autoplay loop muted src="/static/video/final.mp4" class="video-final"></video>
@@ -254,10 +335,11 @@
                                 <a href="/non-technical" class="header_link">Non-Technical events</a>
                                 <a href="/fun" class="header_link">Fun events</a>
                                 <a href="/members" class="header_link">Members</a>
-                                <a href="/register" class="header_link">Register</a>
+                                
                             </nav>
                         </div>
                     `;
+                    // <a href="/register" class="header_link">Register</a>
                     document.querySelector("#close-menu").addEventListener("click", () => {
                         fullScreenMenu.style.top = "-100%";
                         navImage.style.opacity = "1";
@@ -277,6 +359,10 @@
                 loader.style.top = "-100%";
             }, 4200);
         });
+        function startMarquee() {
+            const marquee = document.getElementById('marqueeText');
+            marquee.style.animationPlayState = 'running'; // Starts the animation
+        }
     </script>
 
 </body>

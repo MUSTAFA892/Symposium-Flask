@@ -369,6 +369,54 @@ body {
   height: 100px;
   margin-left: 30px;
 }
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+.marquee {
+height: 35px;
+width: 100%;
+
+overflow: hidden;
+position: relative;
+background-color: #e9e5fb;  
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+padding: 8px 0 4px 0;
+}
+
+.marquee div {
+display: inline-block;
+width: 300%;
+height: 40px;
+
+position: absolute;
+overflow: hidden;
+
+animation: marquee 30s linear infinite;
+}
+
+.marquee span {
+float: left;
+width: 1100px;
+}
+
+.marquee:hover div {
+animation-play-state: paused;
+}
+
+@keyframes marquee {
+0% { left: 0%; }
+100% { left: -1100px; }
+}
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/3909a7");
+
+
+@font-face {font-family: 'UniversLTPro-Ex';src: url('webfonts/3909A7_0_0.eot');src: url('webfonts/3909A7_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/3909A7_0_0.woff2') format('woff2'),url('webfonts/3909A7_0_0.woff') format('woff'),url('webfonts/3909A7_0_0.ttf') format('truetype');}
+
 
 </style></div>
 <div data-animation="default" class="header w-nav" data-easing2="ease-in" fs-scrolldisable-element="smart-nav" data-easing="ease-out" data-collapse="small" data-w-id="489064cb-9577-b618-a8e4-54da4629fd67" role="banner" data-duration="400">
@@ -395,7 +443,7 @@ body {
             <div class="header_link_dot"></div>
             <div class="header_link_text">Members</div>
          </a>
-        <a  href="/register" class="button">Register Now</a>
+        <!-- <a  href="/register" class="button">Register Now</a> -->
       </nav>
       <div fs-scrolldisable-element="toggle" class="header_menu-button w-nav-button" style="-webkit-user-select: text;" aria-label="menu" role="button" tabindex="0" aria-controls="w-nav-overlay-0" aria-haspopup="menu" aria-expanded="false">
          <div class="menu_link">
@@ -411,6 +459,7 @@ body {
    <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
 </div>
 <main class="main-wrapper">
+  
 <section class="studio_hero_section">
 <div class="studio_heading">
    <div class="hero-text_1">
