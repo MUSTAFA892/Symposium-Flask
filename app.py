@@ -7,7 +7,7 @@ app = Flask(__name__, static_url_path='/static')
 
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://spectragenix_user:QTEUtZ1TdZBhJGt9H45waaiBbLflmFuy@dpg-ctasskij1k6c738pg3eg-a/spectragenix"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://ghanti_user:pxUX41a56euC7Cz0sOQfZT3dIrGKv3AN@dpg-cv5be88gph6c73aqbun0-a/ghanti"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = "secretkey123"
 
